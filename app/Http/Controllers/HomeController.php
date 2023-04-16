@@ -3,32 +3,28 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Models\HomeModel;
+
+use App\Http\Repository\HomeRepository;
+use App\Http\Repository\CategoryRepository;
 
 class HomeController extends Controller
 {
-    public $homeModel = null;
+    private $homeRepository;
+    private $categoryRepository;
 
-    public function __construct()
+    public function __construct(HomeRepository $homeRepository, CategoryRepository $categoryRepository)
     {
-        // echo '<h3>Die is Called - HomeController</h3>';die;
-    }
-
-    private function _getHomeModel ()
-    {
-        $this->homeModel = new HomeModel;
-
-        return $this->homeModel;
+        $this->homeRepository = $homeRepository;
+        $this->categoryRepository = $categoryRepository;
     }
 
     public function index()
     {
-        $data = HomeModel::get()->toArray();
+        $data = $this->homeRepository->getAllHome()->toArray();
+        $dataCategory = $this->categoryRepository->getAll()->toArray();
 
         echo '<pre style="color:red";>$data === '; print_r($data);echo '</pre>';
-
-        // $homeModel = $this->_getHomeModel();
-        // $fff = $homeModel->indexModel();
+        echo '<pre style="color:red";>$dataCategory === '; print_r($dataCategory);echo '</pre>';
 
         echo '<h3>Die is Called - index</h3>';die;
     }

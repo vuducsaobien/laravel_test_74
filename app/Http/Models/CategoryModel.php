@@ -5,11 +5,11 @@ namespace App\Http\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class HomeModel extends Model
+class CategoryModel extends Model
 {
     // use HasFactory;
 
-    public $table = 'home';
+    public $table = 'category';
 
     public function __construct()
     {
