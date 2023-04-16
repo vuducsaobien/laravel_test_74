@@ -4,14 +4,18 @@ namespace App\Http\Repository;
 
 use App\Http\Models\HomeModel;
 
-class HomeRepository
+use App\Http\Repository\HomeRepositoryInterface;
+
+class HomeRepository extends BaseRepository implements HomeRepositoryInterface
 {
-    public function __construct()
+
+    public function getModel()
     {
+        return HomeModel::class;
     }
 
-    public function getAllHome()
+    public function getHome()
     {
-        return HomeModel::all();
+        return $this->model->get();
     }
 }

@@ -18,35 +18,16 @@ class AppServiceProvider extends ServiceProvider
             'CategoryRepositoryInterface',
         );
 
-
-        // $this->app->bind("App\Contracts\\{$model}Interface", "App\Repositories\\{$model}Repository");
-
-        // $this->app->bind("App\Http\Repository\\CategoryRepositoryInterface", "App\Http\Repository\\CategoryRepository");
-
-        // $this->app->bind(CategoryRepositoryInterface::class, CategoryRepository::class);
+        $this->app->bind(
+            'App\Http\Repository\HomeRepositoryInterface',
+            'App\Http\Repository\HomeRepository',
+        );
 
         $this->app->bind(
             'App\Http\Repository\CategoryRepositoryInterface',
             'App\Http\Repository\CategoryRepository'
         );
 
-        // foreach ($models as $model) {
-            // $this->app->bind("App\Contracts\\{$model}Interface", "App\Repositories\\{$model}Repository");
-            // $this->app->bind("App\Contracts\\{$model}Interface", "App\Http\Repository\\{$model}");
-
-        // }
-
-        // $this->app->singleton(
-        //     \App\Http\Repository\CategoryRepositoryInterface::class
-        // );
-
-        // $this->app->singleton(
-        //     \App\Http\Repository\HomeRepository::class,
-        // );
-
-        // $this->app->singleton(
-        //     \App\Http\Repository\CategoryRepository::class
-        // );
     }
 
     /**

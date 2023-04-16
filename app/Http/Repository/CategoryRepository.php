@@ -14,12 +14,6 @@ class CategoryRepository extends BaseRepository implements CategoryRepositoryInt
 
     public function getCategory()
     {
-        // return $this->model->select('name')->take(5)->get();
-
-        $data = $this->model->get();
-        // dd($data);
-
-        return $data;
-
+        return $this->model->get();
     }
 }
