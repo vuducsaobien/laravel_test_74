@@ -4,7 +4,7 @@ namespace App\Http\Repository;
 
 use App\Http\Models\HomeModel;
 
-use App\Http\Repository\HomeRepositoryInterface;
+use App\Http\Repository\InterfacesRepo\HomeRepositoryInterface;
 
 class HomeRepository extends BaseRepository implements HomeRepositoryInterface
 {

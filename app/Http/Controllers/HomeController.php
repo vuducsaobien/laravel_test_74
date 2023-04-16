@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Http\Repository\CategoryRepositoryInterface;
-use App\Http\Repository\HomeRepositoryInterface;
+use App\Http\Repository\InterfacesRepo\CategoryRepositoryInterface;
+use App\Http\Repository\InterfacesRepo\HomeRepositoryInterface;
 
 class HomeController extends Controller
 {
@@ -13,8 +13,8 @@ class HomeController extends Controller
     private $categoryRepository;
 
     /**
-     * @var HomeRepositoryInterface|\App\Repository\Repository
-     * @var CategoryRepositoryInterface|\App\Repository\Repository
+     * @var HomeRepositoryInterface|\App\Repository\InterfacesRepo\Repository
+     * @var CategoryRepositoryInterface|\App\Repository\InterfacesRepo\Repository
      */
     public function __construct(
         HomeRepositoryInterface $homeRepository,
