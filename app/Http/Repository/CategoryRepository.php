@@ -3,15 +3,23 @@
 namespace App\Http\Repository;
 
 use App\Http\Models\CategoryModel;
-
-class CategoryRepository
+use App\Http\Repository\BaseRepository;
+class CategoryRepository extends BaseRepository implements CategoryRepositoryInterface
 {
-    public function __construct()
+
+    public function getModel()
     {
+        return CategoryModel::class;
     }
 
-    public function getAll()
+    public function getCategory()
     {
-        return CategoryModel::all();
+        // return $this->model->select('name')->take(5)->get();
+
+        $data = $this->model->get();
+        // dd($data);
+
+        return $data;
+
     }
 }
