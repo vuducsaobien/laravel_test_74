@@ -14,19 +14,15 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
 
-        // $models = array(
-        //     'CategoryRepositoryInterface',
+        // $this->app->bind(
+        //     'App\Http\Repository\InterfacesRepo\HomeRepositoryInterface',
+        //     'App\Http\Repository\HomeRepository',
         // );
 
-        $this->app->bind(
-            'App\Http\Repository\InterfacesRepo\HomeRepositoryInterface',
-            'App\Http\Repository\HomeRepository',
-        );
-
-        $this->app->bind(
-            'App\Http\Repository\InterfacesRepo\CategoryRepositoryInterface',
-            'App\Http\Repository\CategoryRepository'
-        );
+        // $this->app->bind(
+        //     'App\Http\Repository\InterfacesRepo\CategoryRepositoryInterface',
+        //     'App\Http\Repository\CategoryRepository'
+        // );
 
     }
 
