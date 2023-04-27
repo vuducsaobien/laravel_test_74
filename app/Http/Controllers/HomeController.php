@@ -33,8 +33,23 @@ class HomeController extends Controller
         // echo '<pre style="color:red";>$this->pathViewExt === '; print_r($this->pathViewExt);echo '</pre>';
         // echo '<h3>Die is Called - index 123</h3>';die;
 
-        return view($this->pathView . $this->pathViewExt . 'index', compact(
-            'dataHome', 'dataCategory'
-        ));
+        $pathViewFun = $this->pathView . $this->pathViewExt . 'index';
+
+        return compact('dataHome', 'dataCategory', 'pathViewFun');
+
+        // return view($pathViewFun, compact(
+        //     'dataHome', 'dataCategory'
+        // ));
+    }
+
+    public function redirectFunction()
+    {
+
+        // echo '<pre style="color:red";>$data === '; print_r($data);echo '</pre>';
+        echo '<h3>Die is Called - redirectFunction</h3>';die;
+
+        $pathViewFun = $this->pathView . $this->pathViewExt . 'index';
+        return compact('dataHome', 'dataCategory', 'pathViewFun');
+
     }
 }

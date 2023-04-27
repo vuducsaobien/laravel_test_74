@@ -1,45 +1,45 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    {{-- @include('admin.elements.head') --}}
-    {{-- @yield('css') --}}
-</head>
+@extends('adminLteViews.layouts.main')
+@section('content')
+{{-- @include ('admin.templates.zvn_notify')
+@include ('admin.templates.page_header', ['pageIndex' => true]) --}}
 
-{{-- <body class="nav-sm">  --}}
-<body class="nav-md"> 
-
-<div class="container body">
-    <div class="main_container">
-
-        {{-- <div class="col-md-3 left_col">
-            <div class="left_col scroll-view">
-                @include('admin.elements.sidebar_title')
-
-                @if ( config('zvn.checkPermission') )
-                    @include('admin.elements.sidebar_menu_permission')
-                @else
-                    @include('admin.elements.sidebar_menu_default')
-                @endif
-                
-            </div>
-        </div> --}}
-
-        {{-- <div class="top_nav">
-            @include('admin.elements.top_nav')
-        </div>
-        <div class="right_col" role="main">
-            @yield('content')
-        </div>
-        @include('admin.elements.footer') --}}
-
-    </div>
-</div>
 @php
-    echo '<h3>Die is Called - views home index</h3>';die;
+    echo '<pre style="color:red";>$responseDataNew === '; print_r($responseDataNew);echo '</pre>';
+    echo '<h3>Die is Called dsa - view</h3>';die;    
 @endphp
 
-{{-- @include('admin.elements.script_define') --}}
-{{-- @include('admin.elements.script') --}}
-{{-- @yield('script') --}}
-</body>
-</html>
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                {{-- @include('admin.templates.x_title', ['title' => 'Bộ lọc']) --}}
+                <div class="x_content">
+                    <div class="row">
+                        {{-- <div class="col-md-7">{!! $xhtmlButtonFilter !!}</div> --}}
+                        {{-- <div class="col-md-5">{!! $xhtmlAreaSeach !!}</div> --}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{-- <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                @include('admin.templates.x_title', ['title' => 'Danh sách'])
+                @include('admin.pages.'.$controllerName.'.list')
+            </div>
+        </div>
+    </div> --}}
+
+    {{-- @if (count($items) > 0)
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                    @include('admin.templates.x_title', ['title' => 'Phân trang'])
+                    @include('admin.templates.pagination')
+                </div>
+            </div>
+        </div>
+    @endif --}}
+
+@endsection

@@ -17,11 +17,14 @@ class HidePasswordMiddleware
     {
         // Lấy dữ liệu từ response của request
         $response = $next($request);
+        // dd($response);
 
         // Xóa trường "password" khỏi mảng dữ liệu nếu tồn tại
         $responseData = json_decode($response->getContent(), true);
 
+
         echo '<pre style="color:red";>$responseData === '; print_r($responseData);echo '</pre>';
+        // echo '<h3>Die is Called sda</h3>';die;
         $dataHome = $responseData['dataHome'];
 
         foreach ($dataHome as &$value) {
@@ -36,11 +39,18 @@ class HidePasswordMiddleware
         $response->setContent(json_encode($responseData));
 
         $responseDataNew = json_decode($response->getContent(), true);
-        echo '<pre style="color:red";>$responseDataNew === '; print_r($responseDataNew);echo '</pre>';
 
-        // return $response;
-        // return $next($request);
+        // Return route GET -> Controller -> controller
+        // if (!empty($responseDataNew)) {
+        //     return redirect()->route('redirect-route', [$responseDataNew]);
+        // }
 
-        echo '<h3>Die is Called - hid password middlware</h3>';die;
+        // Return View
+        return response(
+            view($responseData['pathViewFun'],
+            compact('responseDataNew')
+        ));
+
+        return $next($request);
     }
 }
