@@ -25,7 +25,11 @@ class HidePasswordMiddleware
 
         echo '<pre style="color:red";>$responseData === '; print_r($responseData);echo '</pre>';
         // echo '<h3>Die is Called sda</h3>';die;
-        $dataHome = $responseData['dataHome'];
+        $dataHome = @$responseData['dataHome'];
+
+        if (empty($dataHome)) {
+            return $next($request);
+        }
 
         foreach ($dataHome as &$value) {
             if (isset($value['hidden'])) {

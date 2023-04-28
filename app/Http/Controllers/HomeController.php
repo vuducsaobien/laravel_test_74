@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Services\HomeService;
-
-
+use App\Jobs\UpdateCategoryDbJob;
+use Illuminate\Support\Carbon;
 class HomeController extends Controller
 {
     private $homeService;
@@ -21,6 +21,12 @@ class HomeController extends Controller
 
     public function index()
     {
+        $timeNow1 = Carbon::now()->toDateTimeString();
+
+        echo '<pre style="color:red";>$timeNow 1 === '; print_r($timeNow1);echo '</pre>';
+        $emailJob = (new UpdateCategoryDbJob($timeNow1))->delay(Carbon::now()->addSeconds(3));
+        dispatch($emailJob);
+        echo '<h3>Die is Called - update category DB - Success</h3>';die;
 
         [$dataHome, $dataCategory] = $this->homeService->calcule();
         // echo '<pre style="color:red";>$dataHome === '; print_r($dataHome);echo '</pre>';
