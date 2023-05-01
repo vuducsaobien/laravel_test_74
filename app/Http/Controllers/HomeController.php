@@ -23,8 +23,10 @@ class HomeController extends Controller
     {
         $timeNow1 = Carbon::now()->toDateTimeString();
 
-        echo '<pre style="color:red";>$timeNow 1 === '; print_r($timeNow1);echo '</pre>';
+        echo '<pre style="color:red";>$timeNow 1 - controlller === '; print_r($timeNow1);echo '</pre>';
         $emailJob = (new UpdateCategoryDbJob($timeNow1))->delay(Carbon::now()->addSeconds(3));
+        // $emailJob = (new UpdateCategoryDbJob($timeNow1));
+
         dispatch($emailJob);
         echo '<h3>Die is Called - update category DB - Success</h3>';die;
 
@@ -46,6 +48,19 @@ class HomeController extends Controller
         // return view($pathViewFun, compact(
         //     'dataHome', 'dataCategory'
         // ));
+    }
+
+    public function homeQueue()
+    {
+        $timeNow1 = Carbon::now()->toDateTimeString();
+
+        echo '<pre style="color:red";>$timeNow 1 === '; print_r($timeNow1);echo '</pre>';
+        $emailJob = (new UpdateCategoryDbJob($timeNow1))->delay(Carbon::now()->addSeconds(3));
+        // $emailJob = (new UpdateCategoryDbJob($timeNow1));
+
+        dispatch($emailJob);
+        echo '<h3>Die is Called - update category DB - Success</h3>';die;
+
     }
 
     public function redirectFunction()
