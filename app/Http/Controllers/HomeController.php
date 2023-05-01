@@ -9,12 +9,10 @@ use Illuminate\Support\Carbon;
 class HomeController extends Controller
 {
     private $homeService;
-    // private $updateJob;
     private $pathViewExt = '/pages/home/';
 
     public function __construct(
         HomeService $homeService
-        // UpdateCategoryDbJob $updateJob
     ){
         parent::__construct();
         $this->homeService = $homeService;
@@ -34,16 +32,7 @@ class HomeController extends Controller
         $timeNow1 = Carbon::now()->toDateTimeString();
 
         $this->homeService->updateJob($timeNow1);
-        // echo '<h3>Die is Called - update category DB - Success</h3>';die;
-
-        // $timeNow1 = Carbon::now()->toDateTimeString();
-
-        // echo '<pre style="color:red";>$timeNow 1 - controlller === '; print_r($timeNow1);echo '</pre>';
-        // $emailJob = (new UpdateCategoryDbJob($timeNow1))->delay(Carbon::now()->addSeconds(3));
-        // // $emailJob = (new UpdateCategoryDbJob($timeNow1));
-
-        // dispatch($emailJob);
-        // echo '<h3>Die is Called - update category DB - Success</h3>';die;
+        echo '<h3>Die is Called - update category DB - Success</h3>';die;
     }
 
     public function redirectFunction()

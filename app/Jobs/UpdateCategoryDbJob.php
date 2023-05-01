@@ -20,7 +20,7 @@ class UpdateCategoryDbJob implements ShouldQueue
      */
     public $timeout = 200;
 
-    private $time2 = null;
+    private $timeSend = null;
 
     /**
      * Create a new job instance.
@@ -29,16 +29,7 @@ class UpdateCategoryDbJob implements ShouldQueue
      */
     public function __construct($time)
     {
-        //
-        echo '<pre style="color:red";>$time con === '; print_r($time);echo '</pre>';
-
-        // $timeNow2 = Carbon::now()->toDateTimeString();
-        // echo '<pre style="color:red";>$timeNow 2 === '; print_r($timeNow2);echo '</pre>';
-        // echo '<pre style="color:red";>$contruct - UpdateCategoryDbJob === '; echo '</pre>';
-        // echo '<h3>Die is Called - 123</h3>';die;
-
-        $this->time2 = $time;
-
+        $this->timeSend = $time;
     }
 
     /**
@@ -47,21 +38,9 @@ class UpdateCategoryDbJob implements ShouldQueue
      * @return void
      */
     public function handle()
-    // public function handle()
     {
-
-        echo '<pre style="color:red";>$this->time2 === '; print_r($this->time2);echo '</pre>';
-        // echo '<pre style="color:red";>$time1 === '; print_r($time1);echo '</pre>';
-        echo '<h3>Die is Called - 2111</h3>';die;
-
-        $timeNow3 = Carbon::now()->toDateTimeString();
-
-        echo '<pre style="color:red";>$this->time2 === '; print_r($this->time2);echo '</pre>';
-        echo '<pre style="color:red";>$timeNow3 === '; print_r($timeNow3);echo '</pre>';
-
         // Update Category DB here
+        echo '<pre style="color:red";>$this->timeSend === '; print_r($this->timeSend);echo '</pre>';
         echo '<pre style="color:red";>$handle - UpdateCategoryDbJob 21 === '; echo '</pre>';
-        echo '<h3>Die is Called - 123</h3>';die;
-
     }
 }
