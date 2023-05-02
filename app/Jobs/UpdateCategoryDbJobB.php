@@ -39,6 +39,7 @@ class UpdateCategoryDbJobB implements ShouldQueue
      */
     public function handle()
     {
+        $fff = 3 / 0;
         $message = 'job B - handle';
         echo '<pre style="color:red";>$message === '; print_r($message);echo '</pre>';
 
