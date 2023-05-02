@@ -51,8 +51,9 @@ class HomeService
         // dispatch($emailJob);
         $jobA->withChain([$jobB, $jobC])->dispatch();
 
-        $timeNow2 = Carbon::now()->toDateTimeString();
-        echo '<pre style="color:red";>$timeNow2 === '; print_r($timeNow2);echo '</pre>';
+        // $jobB->dispatch()->onQueue('default');
+
+
         echo '<h3>Die is Called - update category DB - Success 123</h3>';die;
     }
 }

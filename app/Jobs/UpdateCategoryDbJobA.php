@@ -23,6 +23,15 @@ class UpdateCategoryDbJobA implements ShouldQueue
     private $timeSend = null;
 
     /**
+     * The number of times the job may be attempted.
+     *
+     * @var int
+     */
+    public $tries = 3;
+
+    public static $messageResultABC = [];
+
+    /**
      * Create a new job instance.
      *
      * @return void
@@ -39,15 +48,15 @@ class UpdateCategoryDbJobA implements ShouldQueue
      */
     public function handle()
     {
-        // Update Category DB here
-        // echo '<pre style="color:red";>$this->timeSend === '; print_r($this->timeSend);echo '</pre>';
+        $timeNow2 = Carbon::now()->toDateTimeString();
 
-        // $timeNow3 = Carbon::now()->toDateTimeString();
+        // if ($this->attempts() !== $this->tries) {
+        //     self::$messageResultABC[] = 'Job A - Error - ' . $timeNow2;
+        //     $fff = 3 / 0; // Error
+        // } else {
+            self::$messageResultABC[] = 'Job A - Success - ' . $timeNow2;
+        // }
 
-        // echo '<pre style="color:red";>$timeNow3 === '; print_r($timeNow3);echo '</pre>';
-        // echo '<pre style="color:red";>$handle - UpdateCategoryDbJobA 21 === '; echo '</pre>';
-
-        $message = 'job A - handle';
-        echo '<pre style="color:red";>$message === '; print_r($message);echo '</pre>';
+        echo '<pre style="color:red";>$message === '; print_r(self::$messageResultABC);echo '</pre>';    
     }
 }

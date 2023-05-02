@@ -20,7 +20,18 @@ class UpdateCategoryDbJobB implements ShouldQueue
      */
     public $timeout = 200;
 
+    /**
+     * The number of times the job may be attempted.
+     *
+     * @var int
+     */
+    public $tries = 3;
+
     private $timeSend = null;
+
+    public static $messageResultABC = [];
+
+    public $retryAfter = 5; // second after failed job
 
     /**
      * Create a new job instance.
@@ -39,9 +50,15 @@ class UpdateCategoryDbJobB implements ShouldQueue
      */
     public function handle()
     {
-        $fff = 3 / 0;
-        $message = 'job B - handle';
-        echo '<pre style="color:red";>$message === '; print_r($message);echo '</pre>';
+        $timeNow2 = Carbon::now()->toDateTimeString();
 
+        if ($this->attempts() !== $this->tries) {
+            self::$messageResultABC[] = 'Job B - Error - ' . $timeNow2;
+            $fff = 3 / 0; // Error
+        } else {
+            self::$messageResultABC[] = 'Job B - Success - ' . $timeNow2;
+        }
+
+        echo '<pre style="color:red";>$message === '; print_r(self::$messageResultABC);echo '</pre>';    
     }
 }
