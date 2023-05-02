@@ -20,13 +20,16 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->bind(UpdateCategoryDbJobA::class, function ($app, $params) {
-            return new UpdateCategoryDbJobA($params['time']);
+            // return new UpdateCategoryDbJobA($params['time']);
+            return new UpdateCategoryDbJobA();
         });
         $this->app->bind(UpdateCategoryDbJobB::class, function ($app, $params) {
-            return new UpdateCategoryDbJobB($params['time']);
+            // return new UpdateCategoryDbJobB($params['time']);
+            return new UpdateCategoryDbJobB();
         });
         $this->app->bind(UpdateCategoryDbJobC::class, function ($app, $params) {
-            return new UpdateCategoryDbJobC($params['time']);
+            // return new UpdateCategoryDbJobC($params['time']);
+            return new UpdateCategoryDbJobC();
         });
     }
 

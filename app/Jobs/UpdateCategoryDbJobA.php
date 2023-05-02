@@ -27,9 +27,9 @@ class UpdateCategoryDbJobA implements ShouldQueue
      *
      * @return void
      */
-    public function __construct($time)
+    public function __construct()
     {
-        $this->timeSend = $time;
+        // $this->timeSend = $time;
     }
 
     /**
@@ -42,9 +42,12 @@ class UpdateCategoryDbJobA implements ShouldQueue
         // Update Category DB here
         // echo '<pre style="color:red";>$this->timeSend === '; print_r($this->timeSend);echo '</pre>';
 
-        $timeNow3 = Carbon::now()->toDateTimeString();
+        // $timeNow3 = Carbon::now()->toDateTimeString();
 
-        echo '<pre style="color:red";>$timeNow3 === '; print_r($timeNow3);echo '</pre>';
-        echo '<pre style="color:red";>$handle - UpdateCategoryDbJobA 21 === '; echo '</pre>';
+        // echo '<pre style="color:red";>$timeNow3 === '; print_r($timeNow3);echo '</pre>';
+        // echo '<pre style="color:red";>$handle - UpdateCategoryDbJobA 21 === '; echo '</pre>';
+
+        $message = 'job A - handle';
+        echo '<pre style="color:red";>$message === '; print_r($message);echo '</pre>';
     }
 }
