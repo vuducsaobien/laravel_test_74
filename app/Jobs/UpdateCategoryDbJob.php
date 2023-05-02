@@ -40,7 +40,11 @@ class UpdateCategoryDbJob implements ShouldQueue
     public function handle()
     {
         // Update Category DB here
-        echo '<pre style="color:red";>$this->timeSend === '; print_r($this->timeSend);echo '</pre>';
+        // echo '<pre style="color:red";>$this->timeSend === '; print_r($this->timeSend);echo '</pre>';
+
+        $timeNow3 = Carbon::now()->toDateTimeString();
+
+        echo '<pre style="color:red";>$timeNow3 === '; print_r($timeNow3);echo '</pre>';
         echo '<pre style="color:red";>$handle - UpdateCategoryDbJob 21 === '; echo '</pre>';
     }
 }
