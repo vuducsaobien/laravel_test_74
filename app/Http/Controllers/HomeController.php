@@ -3,33 +3,46 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Models\HomeModel;
+use App\Http\Services\HomeService;
+use Illuminate\Support\Carbon;
 
 class HomeController extends Controller
 {
-    public $homeModel = null;
+    private $homeService;
+    private $pathViewExt = '/pages/home/';
 
-    public function __construct()
-    {
-        // echo '<h3>Die is Called - HomeController</h3>';die;
-    }
-
-    private function _getHomeModel ()
-    {
-        $this->homeModel = new HomeModel;
-
-        return $this->homeModel;
+    public function __construct(
+        HomeService $homeService
+    ){
+        parent::__construct();
+        $this->homeService = $homeService;
     }
 
     public function index()
     {
-        $data = HomeModel::get()->toArray();
+        [$dataHome, $dataCategory] = $this->homeService->calcule();
 
-        echo '<pre style="color:red";>$data === '; print_r($data);echo '</pre>';
+        $pathViewFun = $this->pathView . $this->pathViewExt . 'index';
 
-        // $homeModel = $this->_getHomeModel();
-        // $fff = $homeModel->indexModel();
+        return compact('dataHome', 'dataCategory', 'pathViewFun');
+    }
 
-        echo '<h3>Die is Called - index</h3>';die;
+    public function homeQueue()
+    {
+        $timeNow1 = Carbon::now()->toDateTimeString();
+
+        $this->homeService->updateJob($timeNow1);
+        echo '<h3>Die is Called - update category DB - Success</h3>';die;
+    }
+
+    public function redirectFunction()
+    {
+
+        // echo '<pre style="color:red";>$data === '; print_r($data);echo '</pre>';
+        echo '<h3>Die is Called - redirectFunction</h3>';die;
+
+        $pathViewFun = $this->pathView . $this->pathViewExt . 'index';
+        return compact('dataHome', 'dataCategory', 'pathViewFun');
+
     }
 }

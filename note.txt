@@ -1,0 +1,17 @@
+Queue:
+Vào Home Screen => Update DB category (lâu)
+
+
+php artisan make:job UpdateCategoryDbJobA
+composer require predis/predis
+.env => QUEUE_CONNECTION=redis
+add extension=php_redis.dll vào php.ini
+https://gist.github.com/mtvbrianking/eb7e1dc54d4b85a0a3f27c21fe4d654f
+https://github.com/tporadowski/redis/releases
+https://www.youtube.com/watch?v=ehasjLxVnTg
+
+php artisan queue:work
+
+
+
+

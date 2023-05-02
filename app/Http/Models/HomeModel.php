@@ -16,14 +16,5 @@ class HomeModel extends Model
         // echo '<h3>Die is Called - HomeModel</h3>';die;
     }
 
-    public function indexModel()
-    {
-        // $tb_data = DB::table('imported_tables')->where('id_hash', '=', $dbIds)->get();
-
-        // $data = $this->get();
-
-        // echo '<pre style="color:red";>$data === '; print_r($data);echo '</pre>';
-
-        echo '<h3>Die is Called - HomeModel indexModel</h3>';die;
-    }
+    
 }

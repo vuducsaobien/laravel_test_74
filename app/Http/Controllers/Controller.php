@@ -10,4 +10,11 @@ use Illuminate\Routing\Controller as BaseController;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+
+    protected $pathView;
+    
+    public function __construct()
+    {
+        $this->pathView = config('constants.pathsAdminViewRes');
+    }
 }

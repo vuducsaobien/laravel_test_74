@@ -14,7 +14,10 @@ use App\Http\Controllers\HomeController;
 |
 */
 
-Route::get('/', [HomeController::class, 'index'])->name('index');
+// Route::get('/', [HomeController::class, 'index'])->name('index')->middleware('hidePass');
+Route::get('/queue', [HomeController::class, 'homeQueue'])->name('homeQueue');
+
+// Route::get('/abc', [HomeController::class, 'redirectFunction'])->name('redirect-route');
 
 // Route::get('/', function () {
 //     return view('welcome');
