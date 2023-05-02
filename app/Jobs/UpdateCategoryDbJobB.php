@@ -9,7 +9,7 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Carbon;
 
-class UpdateCategoryDbJob implements ShouldQueue
+class UpdateCategoryDbJobB implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
@@ -45,6 +45,6 @@ class UpdateCategoryDbJob implements ShouldQueue
         $timeNow3 = Carbon::now()->toDateTimeString();
 
         echo '<pre style="color:red";>$timeNow3 === '; print_r($timeNow3);echo '</pre>';
-        echo '<pre style="color:red";>$handle - UpdateCategoryDbJob 21 === '; echo '</pre>';
+        echo '<pre style="color:red";>$handle - UpdateCategoryDbJobA 21 === '; echo '</pre>';
     }
 }

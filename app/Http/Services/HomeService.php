@@ -4,7 +4,7 @@ namespace App\Http\Services;
 
 use App\Http\Repository\InterfacesRepo\CategoryRepositoryInterface;
 use App\Http\Repository\InterfacesRepo\HomeRepositoryInterface;
-use App\Jobs\UpdateCategoryDbJob;
+use App\Jobs\UpdateCategoryDbJobA;
 use Illuminate\Support\Carbon;
 
 class HomeService
@@ -34,7 +34,7 @@ class HomeService
         $timeNow1 = Carbon::now()->toDateTimeString();
         echo '<pre style="color:red";>$timeNow1 === '; print_r($timeNow1);echo '</pre>';
         // $paramsSend = ['time pass - 1', 'time pass - 12'];
-        $emailJob = app()->makeWith(UpdateCategoryDbJob::class, ['time' => $time])->delay(now()->addSeconds(3));
+        $emailJob = app()->makeWith(UpdateCategoryDbJobA::class, ['time' => $time])->delay(now()->addSeconds(3));
         dispatch($emailJob);
 
 

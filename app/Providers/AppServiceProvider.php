@@ -3,10 +3,12 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use App\Jobs\UpdateCategoryDbJob;
+use App\Jobs\UpdateCategoryDbJobA;
 
 use App\Http\Services\HomeService;
 use App\Http\Repository\HomeRepository;
+use App\Jobs\UpdateCategoryDbJobB;
+use App\Jobs\UpdateCategoryDbJobC;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -17,8 +19,14 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind(UpdateCategoryDbJob::class, function ($app, $params) {
-            return new UpdateCategoryDbJob($params['time']);
+        $this->app->bind(UpdateCategoryDbJobA::class, function ($app, $params) {
+            return new UpdateCategoryDbJobA($params['time']);
+        });
+        $this->app->bind(UpdateCategoryDbJobB::class, function ($app, $params) {
+            return new UpdateCategoryDbJobB($params['time']);
+        });
+        $this->app->bind(UpdateCategoryDbJobC::class, function ($app, $params) {
+            return new UpdateCategoryDbJobC($params['time']);
         });
     }
 
