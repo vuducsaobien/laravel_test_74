@@ -13,5 +13,7 @@ https://www.youtube.com/watch?v=ehasjLxVnTg
 php artisan queue:work
 
 
-
-
+// Event Listeneer
+php artisan event:generate
+php artisan make:event OrderShipped
+php artisan make:listener SendShipmentNotification --event=OrderShipped
