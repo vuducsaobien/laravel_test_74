@@ -17,3 +17,5 @@ php artisan queue:work
 php artisan event:generate
 php artisan make:event OrderShipped
 php artisan make:listener SendShipmentNotification --event=OrderShipped
+
+http://127.0.0.1:8000/event/2

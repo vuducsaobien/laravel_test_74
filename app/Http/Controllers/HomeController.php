@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Models\OrderModel;
 use Illuminate\Http\Request;
 use App\Http\Services\HomeService;
 use Illuminate\Support\Carbon;
@@ -44,5 +45,10 @@ class HomeController extends Controller
         $pathViewFun = $this->pathView . $this->pathViewExt . 'index';
         return compact('dataHome', 'dataCategory', 'pathViewFun');
 
+    }
+
+    public function evenListeneerShip($orderId)
+    {
+        $this->homeService->eventShip($orderId);
     }
 }
