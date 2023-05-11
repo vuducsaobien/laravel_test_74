@@ -2,11 +2,11 @@
 
 namespace App\Listeners;
 
-use App\Events\OrderShipped;
+use App\Events\OrderShippedEvent;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 
-class SendShipmentNotification
+class SendShipmentNotificationListener
 {
     /**
      * Create the event listener.
@@ -21,10 +21,10 @@ class SendShipmentNotification
     /**
      * Handle the event.
      *
-     * @param  OrderShipped  $event
+     * @param  OrderShippedEvent  $event
      * @return void
      */
-    public function handle(OrderShipped $event)
+    public function handle(OrderShippedEvent $event)
     {
         // echo '<pre style="color:red";>$event === '; print_r($event);echo '</pre>';
         // Gửi thông báo cho khách hàng rằng đơn hàng đã được vận chuyển thành công

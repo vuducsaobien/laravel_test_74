@@ -8,7 +8,7 @@ use App\Jobs\UpdateCategoryDbJobA;
 use App\Jobs\UpdateCategoryDbJobB;
 use App\Jobs\UpdateCategoryDbJobC;
 use Illuminate\Support\Carbon;
-use App\Events\OrderShipped;
+use App\Events\OrderShippedEvent;
 use App\Http\Models\OrderModel;
 
 class HomeService
@@ -64,6 +64,6 @@ class HomeService
         // Phát ra event khi đơn hàng được vận chuyển
         
         $order = OrderModel::find($orderId);
-        event(new OrderShipped($order));
+        event(new OrderShippedEvent($order));
     }
 }
