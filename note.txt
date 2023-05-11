@@ -13,5 +13,9 @@ https://www.youtube.com/watch?v=ehasjLxVnTg
 php artisan queue:work
 
 
+// Event Listeneer
+php artisan event:generate
+php artisan make:event OrderShippedEvent
+php artisan make:listener SendShipmentNotificationListener --event=OrderShippedEvent
 
-
+http://127.0.0.1:8000/event/2
