@@ -29,9 +29,17 @@ class SendShipmentNotificationListener
         // echo '<pre style="color:red";>$event === '; print_r($event);echo '</pre>';
         // Gửi thông báo cho khách hàng rằng đơn hàng đã được vận chuyển thành công
         // $customer = $event->order->customer;
-        $customer = $event->order;
+        $customer = $event->orderSent;
 
+        $orderIdSent = $event->orderIdSent;
+
+
+        $allOrder = $customer->name;
+
+        echo '<pre style="color:red";>$event === '; print_r($event);echo '</pre>';
         echo '<pre style="color:red";>$customer === '; print_r($customer);echo '</pre>';
+        echo '<pre style="color:red";>$allOrder === '; print_r($allOrder);echo '</pre>';
+        echo '<pre style="color:red";>$orderIdSent === '; print_r($orderIdSent);echo '</pre>';
 
         echo '<h3>Die is Called - 121</h3>';die;
 

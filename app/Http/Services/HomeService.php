@@ -64,6 +64,6 @@ class HomeService
         // Phát ra event khi đơn hàng được vận chuyển
         
         $order = OrderModel::find($orderId);
-        event(new OrderShippedEvent($order));
+        event(new OrderShippedEvent($order, $orderId));
     }
 }

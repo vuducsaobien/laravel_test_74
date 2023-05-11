@@ -14,17 +14,21 @@ class OrderShippedEvent
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
-    public $order;
+    public $orderSent;
+
+    public $orderIdSent;
+
 
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct($order)
+    public function __construct($order, $orderIdSent)
     {
         //
-        $this->order = $order;
+        $this->orderSent = $order;
+        $this->orderIdSent = $orderIdSent;
     }
 
     /**
