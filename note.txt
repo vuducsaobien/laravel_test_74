@@ -1,3 +1,6 @@
+composer install
+php artisan key:generate
+
 Queue:
 Vào Home Screen => Update DB category (lâu)
 

@@ -51,4 +51,12 @@ class HomeController extends Controller
     {
         $this->homeService->eventShip($orderId);
     }
+
+    public function cacheRedis($cacheId)
+    {
+        $data = $this->homeService->cacheRedisService($cacheId);
+        // echo '<pre style="color:red";>$data === '; print_r($data);echo '</pre>';
+        echo '<h3>Die is Called - cacheRedis</h3>';die;
+
+    }
 }
