@@ -67,19 +67,4 @@ class HomeService
         event(new OrderShippedEvent($order, $orderId));
     }
 
-    public function cacheRedisService($cacheId)
-    {
-        CacheRedisService::set('abc', 123);
-
-        $aaa = CacheRedisService::get('abc');
-
-        echo '<pre style="color:red";>$aaa === '; print_r($aaa);echo '</pre>';
-        echo '<h3>Die is Called - cacheRedisService</h3>';die;
-        // Phát ra event khi đơn hàng được vận chuyển
-
-
-
-
-        
-    }
 }

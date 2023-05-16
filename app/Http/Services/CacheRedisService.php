@@ -2,54 +2,52 @@
 
 namespace App\Http\Services;
 
-use App\Http\Repository\InterfacesRepo\CategoryRepositoryInterface;
-use App\Http\Repository\InterfacesRepo\HomeRepositoryInterface;
-use App\Jobs\UpdateCategoryDbJobA;
-use App\Jobs\UpdateCategoryDbJobB;
-use App\Jobs\UpdateCategoryDbJobC;
+use App\Http\Repository\InterfacesRepo\CacheRepositoryInterface;
 use Illuminate\Support\Carbon;
-use App\Events\OrderShippedEvent;
-use App\Http\Models\OrderModel;
 
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 
 class CacheRedisService
 {
-    // private $homeRepository;
-    // private $categoryRepository;
+    private $cacheRepos;
+    private static $cacheDrive = 'redis';
+
 
     public function __construct(
-        // HomeRepositoryInterface $homeRepository,
-        // CategoryRepositoryInterface $categoryRepository
+        CacheRepositoryInterface $cacheRepos
     ){
-        // $this->homeRepository = $homeRepository;
-        // $this->categoryRepository = $categoryRepository;
+        $this->cacheRepos = $cacheRepos;
     }
 
     public static function set($key, $value = null)
     {
         try {
-            Cache::store('redis')->set($key, $value);
+            Cache::store(self::$cacheDrive)->set($key, $value);
         } catch (\Throwable $th) {
-            //throw $th;
+            throw $th;
         }
     }
 
     public static function get($key)
     {
         try {
-            return Cache::store('redis')->get($key);
+            return Cache::store(self::$cacheDrive)->get($key);
         } catch (\Throwable $th) {
-            //throw $th;
+            throw $th;
         }
     }
 
-    public static function rememberDbGetList($key, $table, $id, $minutes)
+    public static function rememberDbGetList($key, $table, $minutes)
     {
         try {
-            return Cache::store('redis')->remember($key, $minutes, function() use ($table) {
-                return DB::table($table)->get();
+            return Cache::store(self::$cacheDrive)->remember($key, $minutes, function() use ($table) {
+
+                $all = self::$cacheRepos->getAll();
+
+                echo '<pre style="color:red";>$all === '; print_r($all);echo '</pre>';
+                echo '<h3>Die is Called sad</h3>';die;
+                // return DB::table($table)->get();
             });
 
             // return Cache::remember($key, $minutes, function() use ($table) {
@@ -59,6 +57,8 @@ class CacheRedisService
             //throw $th;
         }
     }
+
+
 
 
     // $value = Cache::remember('users', $minutes, function() {

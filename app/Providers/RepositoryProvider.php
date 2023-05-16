@@ -10,6 +10,10 @@ use App\Http\Repository\CategoryRepository;
 use App\Http\Repository\InterfacesRepo\HomeRepositoryInterface;
 use App\Http\Repository\HomeRepository;
 
+use App\Http\Repository\InterfacesRepo\CacheRepositoryInterface;
+use App\Http\Repository\CacheRepository;
+
+
 
 class RepositoryProvider extends ServiceProvider
 {
@@ -28,6 +32,11 @@ class RepositoryProvider extends ServiceProvider
         $this->app->singleton(
             CategoryRepositoryInterface::class,
             CategoryRepository::class,
+        );
+
+        $this->app->singleton(
+            CacheRepositoryInterface::class,
+            CacheRepository::class,
         );
         
     }

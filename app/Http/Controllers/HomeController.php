@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Models\OrderModel;
+use App\Http\Services\CacheService;
 use Illuminate\Http\Request;
 use App\Http\Services\HomeService;
 use Illuminate\Support\Carbon;
@@ -10,13 +11,16 @@ use Illuminate\Support\Carbon;
 class HomeController extends Controller
 {
     private $homeService;
+    private $cacheService;
     private $pathViewExt = '/pages/home/';
 
     public function __construct(
-        HomeService $homeService
+        HomeService $homeService,
+        CacheService $cacheService
     ){
         parent::__construct();
         $this->homeService = $homeService;
+        $this->cacheService = $cacheService;
     }
 
     public function index()
@@ -54,7 +58,7 @@ class HomeController extends Controller
 
     public function cacheRedis($cacheId)
     {
-        $data = $this->homeService->cacheRedisService($cacheId);
+        $data = $this->cacheService->cacheServiceCal($cacheId);
         // echo '<pre style="color:red";>$data === '; print_r($data);echo '</pre>';
         echo '<h3>Die is Called - cacheRedis</h3>';die;
 
