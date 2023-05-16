@@ -20,6 +20,19 @@ class CacheService
         $this->cacheRepo = $cacheRepository;
     }
 
+    public function getList()
+    {
+
+
+        $data = $this->cacheRepo->getAllPagi();
+
+        // echo '<pre style="color:red";>$data === '; print_r($data);echo '</pre>';
+        // die();
+
+        return $data;
+        
+    }
+
 
     public function cacheServiceCal($cacheId)
     {

@@ -18,4 +18,16 @@ class CacheRepository extends BaseRepository implements CacheRepositoryInterface
     {
         return $this->model->paginate(3)->all();
     }
+
+    public function getAllPagi()
+    {
+        $query = $this->model->select('*');
+
+        $result =  $query
+        ->orderBy('id', 'asc')
+        ->paginate(2);
+
+        return $result;
+
+    }
 }

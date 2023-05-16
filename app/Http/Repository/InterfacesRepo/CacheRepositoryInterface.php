@@ -7,4 +7,7 @@ use App\Http\Repository\InterfacesRepo\RepositoryInterface;
 interface CacheRepositoryInterface extends RepositoryInterface
 {
     public function getAll();
+
+    public function getAllPagi();
+
 }

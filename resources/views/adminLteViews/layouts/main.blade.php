@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    {{-- @include('admin.elements.head') --}}
+    @include('adminLteViews.elements.head', ['titleView' => $titleView ?? 'acb'])
     @yield('css')
 </head>
 
@@ -12,23 +12,19 @@
     <div class="main_container">
         <div class="col-md-3 left_col">
             <div class="left_col scroll-view">
-                {{-- @include('admin.elements.sidebar_title') --}}
+                {{-- @include('adminLteViews.elements.sidebar_title') --}}
 
-                {{-- @if ( config('zvn.checkPermission') )
-                    @include('admin.elements.sidebar_menu_permission')
-                @else
-                    @include('admin.elements.sidebar_menu_default')
-                @endif --}}
+                @include('adminLteViews.elements.sidebar_menu')
                 
             </div>
         </div>
         <div class="top_nav">
-            {{-- @include('admin.elements.top_nav') --}}
+            {{-- @include('adminLteViews.elements.top_nav') --}}
         </div>
         <div class="right_col" role="main">
             @yield('content')
         </div>
-        {{-- @include('admin.elements.footer') --}}
+        {{-- @include('adminLteViews.elements.footer') --}}
     </div>
 </div>
 @php
@@ -38,8 +34,8 @@
     // echo '<h3>Die is Called </h3>';die;
 @endphp
 
-{{-- @include('admin.elements.script_define')
-@include('admin.elements.script') --}}
+{{-- @include('adminLteViews.elements.script_define') --}}
+@include('adminLteViews.elements.script')
 @yield('script')
 </body>
 </html>
