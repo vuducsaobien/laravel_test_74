@@ -13,7 +13,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
 
-        factory(CacheRedisModel::class, 15)->create();
+        factory(CacheRedisModel::class, 10000)->create();
 
 
 

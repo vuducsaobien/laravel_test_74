@@ -37,13 +37,22 @@ class CacheService
         }
 
         $data = CacheRedisService::get($key);
+        $perPage = $data->perPage();
+        $total = $data->total();
+        $lastPage = $data->lastPage();
+
 
 
         // $data = $this->cacheRepo->getAllPagi($currentPage);
 
-        // var_dump($existKey);
-        // echo '<pre style="color:red";>$key === '; print_r($key);echo '</pre>';
-        // echo '<pre style="color:red";>$data === '; print_r($data);echo '</pre>';
+        var_dump($existKey);
+        echo '<pre style="color:red";>$key === '; print_r($key);echo '</pre>';
+        echo '<pre style="color:red";>$perPage === '; print_r($perPage);echo '</pre>';
+        echo '<pre style="color:red";>$total === '; print_r($total);echo '</pre>';
+        echo '<pre style="color:red";>$currentPage === '; print_r($currentPage);echo '</pre>';
+        echo '<pre style="color:red";>$lastPage === '; print_r($lastPage);echo '</pre>';
+
+        echo '<pre style="color:red";>$data === '; print_r($data);echo '</pre>';
         // die();
 
 

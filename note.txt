@@ -31,3 +31,11 @@ install VC_redist.x64
 Microsoft store => install Redis Manager by LukiyA
 Create Connect with redis port
 db1
+
+// Factory DB
+php artisan migrate --seed
+
+
+
+
+

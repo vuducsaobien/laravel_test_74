@@ -33,10 +33,10 @@ class CachesController extends Controller
         $time_end = microtime(true);
         $timeExcute = $time_end - $time_start;
 
-        // echo '<pre style="color:red";>$timeExcute === '; print_r($timeExcute);echo '</pre>';
+        echo '<pre style="color:red";>$timeExcute === '; print_r($timeExcute);echo '</pre>';
 
         // echo '<pre style="color:red";>$items === '; print_r($items);echo '</pre>';
-        // echo '<h3>Die is Called </h3>';die;
+        echo '<h3>Die is Called </h3>';die;
 
         return view($pathViewFun, compact('items', 'titleView', 'timeExcute'));
 
