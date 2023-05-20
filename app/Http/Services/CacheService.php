@@ -20,14 +20,33 @@ class CacheService
         $this->cacheRepo = $cacheRepository;
     }
 
-    public function getList()
+    public function getList($currentPage)
     {
+        // echo '<pre style="color:red";>$currentPage === '; print_r($currentPage);echo '</pre>';
 
 
-        $data = $this->cacheRepo->getAllPagi();
+        $key = 'list-cache-page-' . $currentPage;
 
+        // $data = CacheRedisService::get($key);
         // echo '<pre style="color:red";>$data === '; print_r($data);echo '</pre>';
         // die();
+
+        $existKey = CacheRedisService::has($key);
+        if (!$existKey) {
+            CacheRedisService::set($key, $this->cacheRepo->getAllPagi($currentPage));
+        }
+
+        $data = CacheRedisService::get($key);
+
+
+        // $data = $this->cacheRepo->getAllPagi($currentPage);
+
+        // var_dump($existKey);
+        // echo '<pre style="color:red";>$key === '; print_r($key);echo '</pre>';
+        // echo '<pre style="color:red";>$data === '; print_r($data);echo '</pre>';
+        // die();
+
+
 
         return $data;
         

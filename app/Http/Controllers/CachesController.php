@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Services\CacheService;
 use Illuminate\Http\Request;
-use App\Http\Services\HomeService;
 
 class CachesController extends Controller
 {
@@ -19,16 +18,27 @@ class CachesController extends Controller
     }
 
 
-    public function index()
+    public function index(Request $request)
     {
+        $time_start = microtime(true);
+
         $titleView = 'Cache Redis List';
         $pathViewFun = $this->pathView . $this->pathViewExt . 'index';
 
-        $items = $this->cacheService->getList();
+        $currentPage = $request->query->all()['page'] ?? 1;
+
+        $items = $this->cacheService->getList($currentPage);
 
 
-        // echo '<pre style="color:red";>$data === '; print_r($data);echo '</pre>';
-        return view($pathViewFun, compact('items', 'titleView'));
+        $time_end = microtime(true);
+        $timeExcute = $time_end - $time_start;
+
+        // echo '<pre style="color:red";>$timeExcute === '; print_r($timeExcute);echo '</pre>';
+
+        // echo '<pre style="color:red";>$items === '; print_r($items);echo '</pre>';
+        // echo '<h3>Die is Called </h3>';die;
+
+        return view($pathViewFun, compact('items', 'titleView', 'timeExcute'));
 
     }
 }

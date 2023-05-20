@@ -26,7 +26,12 @@ class CreateCacheRedisTable extends Migration
         DB::table('cache_redis')->insert(['name' => 'cache_redis - name 4']);
         DB::table('cache_redis')->insert(['name' => 'cache_redis - name 5']);
         DB::table('cache_redis')->insert(['name' => 'cache_redis - name 6']);
-
+        DB::table('cache_redis')->insert(['name' => 'cache_redis - name 7']);
+        DB::table('cache_redis')->insert(['name' => 'cache_redis - name 8']);
+        DB::table('cache_redis')->insert(['name' => 'cache_redis - name 9']);
+        DB::table('cache_redis')->insert(['name' => 'cache_redis - name 10']);
+        DB::table('cache_redis')->insert(['name' => 'cache_redis - name 11']);
+        DB::table('cache_redis')->insert(['name' => 'cache_redis - name 12']);
     }
 
     /**

@@ -7,6 +7,7 @@ use App\Http\Repository\InterfacesRepo\RepositoryInterface;
 abstract class BaseRepository implements RepositoryInterface
 {
     protected $model;
+    protected $itemPerPage = 2;
 
     public function __construct()
     {
