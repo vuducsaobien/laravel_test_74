@@ -7,6 +7,7 @@ use App\Http\Repository\InterfacesRepo\HomeRepositoryInterface;
 // use Illuminate\Support\Carbon;
 use App\Http\Models\OrderModel;
 use App\Http\Models\Table1Model;
+use App\Http\Models\Table2Model;
 
 class DatabseService
 {
@@ -67,11 +68,16 @@ class DatabseService
     {
 
         // $table1 = Table1Model::find(2)->table2;
+        // $table1 = Table1Model::find(2);
 
-        $table1 = Table1Model::find(2);
+        // echo '<pre style="color:red";>$table1 === '; print_r($table1);echo '</pre>';
+        // echo '<h3>Die is Called - ser</h3>';die;
+
+        $table2 = Table2Model::find(4)->table1;
+        echo '<pre style="color:red";>$table2 === '; print_r($table2);echo '</pre>';
 
 
-        echo '<pre style="color:red";>$table1 === '; print_r($table1);echo '</pre>';
+
 
         echo '<h3>Die is Called - ser</h3>';die;
     }

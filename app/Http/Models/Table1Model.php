@@ -19,8 +19,12 @@ class Table1Model extends Model
 
     public function table2(): HasOne
     {
-        return $this->hasOne(Table2Model::class, 'id_table_1', 'id_table_2');
-        echo '<h3>Die is Called - 12 table2</h3>';die;
+        // echo '<h3>Die is Called - 12 table2</h3>';die;
+
+        // return $this->hasOne(Table2Model::class, 'id_table_1', 'id_table_2');
+        return $this->hasOne(Table2Model::class, 'id_table_2', 'id_table_1');
+
+        // echo '<h3>Die is Called - 12 table2</h3>';die;
 
     }
 

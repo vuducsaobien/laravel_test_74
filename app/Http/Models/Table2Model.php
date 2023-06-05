@@ -20,7 +20,7 @@ class Table2Model extends Model
      */
     public function table1(): BelongsTo
     {
-        return $this->belongsTo(Table1Model::class, 'id_table_2', 'id_table_2');
+        return $this->belongsTo(Table1Model::class, 'id_table_2', 'id_table_1');
     }
 
 
