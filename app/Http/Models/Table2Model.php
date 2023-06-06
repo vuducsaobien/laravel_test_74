@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Table2Model extends Model
 {
     public $table = 'table_2';
-    protected $primaryKey = "id_table_2";
+    protected $primaryKey = 'id_table_2';
 
     public static $idAuto = 1;
 
@@ -20,8 +20,14 @@ class Table2Model extends Model
      */
     public function table1(): BelongsTo
     {
-        return $this->belongsTo(Table1Model::class, 'id_table_2', 'id_table_1');
+        // return $this->belongsTo(Table1Model::class, 'id_table_2', 'id_table_1');
+        return $this->belongsTo(Table1Model::class, $this->primaryKey, 'id_table_1');
     }
+
+    // public function getPrimaryKeyA()
+    // {
+    //     return $this->primaryKey;
+    // }
 
 
     

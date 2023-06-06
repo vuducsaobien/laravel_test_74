@@ -23,6 +23,8 @@ Route::get('/cache/{id}', [HomeController::class, 'cacheRedis'])->name('cacheRed
 Route::get('/cache', [CachesController::class, 'index'])->name('cacheRedisIndex');
 
 Route::get('/database-relationship/one-one', [DatabaseController::class, 'relationOneOne'])->name('relationDbOneOne');
+Route::get('/database-relationship/one-many', [DatabaseController::class, 'relationOneMany'])->name('relationDbOneMany');
+
 
 
 // Route::get('/abc', [HomeController::class, 'redirectFunction'])->name('redirect-route');

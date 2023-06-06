@@ -28,4 +28,11 @@ class DatabaseController extends Controller
 
         echo '<h3>Die is Called - relationOneOne</h3>';die;
     }
+
+    public function relationOneMany()
+    {
+        $fff = $this->dbServive->relationOneManySer();
+
+        echo '<h3>Die is Called - relationOneMany</h3>';die;
+    }
 }
