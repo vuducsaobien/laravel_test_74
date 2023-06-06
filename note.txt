@@ -36,6 +36,9 @@ db1
 php artisan migrate --seed
 
 
+// Cronjob
+
+php artisan make:command WordOfTheDay
 
 
 
