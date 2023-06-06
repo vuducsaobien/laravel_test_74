@@ -66,4 +66,5 @@ class HomeService
         $order = OrderModel::find($orderId);
         event(new OrderShippedEvent($order, $orderId));
     }
+
 }

@@ -1,3 +1,6 @@
+composer install
+php artisan key:generate
+
 Queue:
 Vào Home Screen => Update DB category (lâu)
 
@@ -19,3 +22,20 @@ php artisan make:event OrderShippedEvent
 php artisan make:listener SendShipmentNotificationListener --event=OrderShippedEvent
 
 http://127.0.0.1:8000/event/2
+
+
+
+// Redis Cache Manager
+https://docs.redisdesktop.com/en/2019/install/
+install VC_redist.x64
+Microsoft store => install Redis Manager by LukiyA
+Create Connect with redis port
+db1
+
+// Factory DB
+php artisan migrate --seed
+
+
+
+
+
