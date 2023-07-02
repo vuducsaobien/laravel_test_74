@@ -1,0 +1,11 @@
+// Auth
+composer require laravel/ui
+php artisan ui vue --auth
+php artisan migrate
+composer update
+
+
+http://127.0.0.1:8000/login
+
+php artisan migrate --path=/database/migrations/2023_07_01_083226_add_is_admin_to_users_table.php
+
